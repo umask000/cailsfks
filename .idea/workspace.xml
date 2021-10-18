@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1ef45913-c196-4e83-86bb-9959fade6525" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1zfVP6Za6sIhwR85TJ6NxRGU1yy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1ef45913-c196-4e83-86bb-9959fade6525" name="Default Changelist" comment="" />
+      <created>1634539102245</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634539102245</updated>
+      <workItem from="1634539106396" duration="112000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="580" y="173" key="FileChooserDialogImpl" timestamp="1634539134252">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="580" y="173" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1634539134252" />
+    <state x="526" y="219" key="git4idea.merge.GitPullDialog" timestamp="1634539166640">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="526" y="219" key="git4idea.merge.GitPullDialog/62.0.1474.864@62.0.1474.864" timestamp="1634539166640" />
+  </component>
+</project>
