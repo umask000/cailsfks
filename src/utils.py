@@ -13,6 +13,7 @@ import argparse
 
 from setting import *
 
+# 初始化日志配置
 def initialize_logging(filename, filemode='w'):
     logging.basicConfig(
         level=logging.DEBUG,
@@ -27,6 +28,7 @@ def initialize_logging(filename, filemode='w'):
     console.setFormatter(formatter)
     logging.getLogger().addHandler(console)
 
+# 加载配置参数
 def load_args(Config):
     config = Config()
     parser = config.parser
@@ -35,6 +37,7 @@ def load_args(Config):
     except:
         return parser.parse_known_args()[0]
 
+# 保存配置参数
 def save_args(args, save_path=None):
 
     class _MyEncoder(json.JSONEncoder):
@@ -48,6 +51,7 @@ def save_args(args, save_path=None):
     with open(save_path, 'w') as f:
         f.write(json.dumps(vars(args), cls=_MyEncoder))
 
+# 保存模型
 def save_checkpoint(model,
                     save_path,
                     optimizer=None,
@@ -64,6 +68,7 @@ def save_checkpoint(model,
         checkpoint['scheduler'] = scheduler.state_dict()
     torch.save(checkpoint, save_path)
 
+# 加载模型
 def load_checkpoint(model, save_path, optimizer=None, scheduler=None):
     checkpoint = torch.load(save_path)
     model.load_state_dict(checkpoint['model'])
@@ -73,9 +78,11 @@ def load_checkpoint(model, save_path, optimizer=None, scheduler=None):
         scheduler.load_state_dict(checkpoint['scheduler'])
     return model, optimizer, checkpoint['epoch'], checkpoint['iteration']
 
+# 编码问题答案：用1, 2, 4, 8分别表示四个选项并加和得到编码值，即二进制编码
 def encode_answer(decoded_answer):
     return sum(list(map(lambda x: 2 ** OPTION2INDEX[x], filter(lambda x: x in OPTION2INDEX, decoded_answer))))
 
+# 解码问题答案：encode_answer的反函数，即二进制解码
 def decode_answer(encoded_answer):
     assert 16 > encoded_answer > 0
     decoded_answer = []
@@ -84,10 +91,12 @@ def decode_answer(encoded_answer):
             decoded_answer.append(INDEX2OPTION[index])
     return decoded_answer
 
+# 中文数词转数字
 def chinese_to_number(string):
     easy_mapper = {
         '一': '1',
         '二': '2',
+        '两': '2',
         '三': '3',
         '四': '4',
         '五': '5',

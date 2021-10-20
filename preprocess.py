@@ -13,7 +13,7 @@ import pandas
 from torch.utils.data import Dataset, DataLoader
 
 from setting import *
-from src.dataset import json_to_csv, token2frequency_to_csv, token2id_to_csv, reference_to_csv_1, reference_to_csv_2
+from src.dataset import json_to_csv, token2frequency_to_csv, token2id_to_csv, reference_to_csv, index_reference
 
 if __name__ == '__main__':
 	os.makedirs(NEWDATA_DIR, exist_ok=True)
@@ -26,6 +26,7 @@ if __name__ == '__main__':
 	# token2frequency_to_csv(export_path=TOKEN2FREQUENCY_PATH, token2frequency=token2frequency)
 	# token2id_to_csv(export_path=TOKEN2ID_PATH, token2frequency=token2frequency)
 
-	# reference_to_csv_1(export_path=REFERENCE_PATH)
-	reference_to_csv_2(export_path=REFERENCE_PATH)
-	# reference_to_graph(import_path=REFERENCE_PATH, export_path=None)
+	# _, token2frequency = reference_to_csv(export_path=REFERENCE_PATH)
+	# token2frequency_to_csv(export_path=REFERENCE_TOKEN2FREQUENCY_PATH, token2frequency=token2frequency)
+	# token2id_to_csv(export_path=REFERENCE_TOKEN2ID_PATH, token2frequency=token2frequency)
+	index_reference()

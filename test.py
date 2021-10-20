@@ -2,8 +2,6 @@
 # @author : caoyang
 # @email: caoyang@163.sufe.edu.cn
 
-
-
-if __name__ == '__main__':
-
-    pass
+import dill
+print(dir(dill))
+help(dill.dump)

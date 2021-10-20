@@ -13,11 +13,14 @@ if __name__ == '__main__':
 import os
 import time
 import json
+import dill
 import jieba
 import torch
 import pandas
+import pickle
 import networkx
 
+from collections import Counter
 from torch.utils.data import Dataset, DataLoader
 
 from setting import *
@@ -33,7 +36,7 @@ def tokenize(sentence, token2frequency):
         token2frequency[token] += 1
     return tokens, token2frequency
 
-
+# JEC-QA数据集中的两组训练集和测试集从JSON格式转为CSV格式文件
 def json_to_csv(import_path, export_path, token2frequency=None, mode='train'):
     assert mode in ['train', 'test'], f'Unknown param `mode`: {mode}'
     data_dict = {
@@ -80,7 +83,7 @@ def json_to_csv(import_path, export_path, token2frequency=None, mode='train'):
         dataframe.to_csv(export_path, sep='\t', index=False, header=True)
     return dataframe, _token2frequency
 
-
+# token2id字典转为CSV格式文件
 def token2id_to_csv(export_path, token2frequency):
     token2id = TOKEN2ID.copy()
     _id = len(token2id)
@@ -93,70 +96,15 @@ def token2id_to_csv(export_path, token2frequency):
         'token': list(token2id.keys()),
     }).sort_values(by=['id'], ascending=True).to_csv(export_path, sep='\t', index=False, header=True)
 
-
+# token2frequency字典转为CSV格式文件
 def token2frequency_to_csv(export_path, token2frequency):
     pandas.DataFrame({
         'token': list(token2frequency.keys()),
         'frequency': list(token2frequency.values()),
     }).sort_values(by=['frequency'], ascending=False).to_csv(export_path, sep='\t', index=False, header=True)
 
-
-def reference_to_csv_1(export_path):
-    reference_dict = {
-        'law': [],
-        'chapter_number_1': [],
-        'chapter_number_2': [],
-        'chapter_name_1': [],
-        'chapter_name_2': [],
-    }
-    for i in range(TOTAL_REFERENCE_BLOCK):
-        reference_dict[f'block_{i}'] = []
-
-    for law in os.listdir(REFERENCE_DIR):
-        for filename in os.listdir(os.path.join(REFERENCE_DIR, law)):
-            if filename.endswith('.txt'):
-                _filename = filename.replace(' ', '').replace('.txt', '')
-                start_index = _filename.find('第') + 1
-                end_index = _filename.find('章')
-                if start_index == 0 or end_index == -1:
-                    continue
-                chapter_number_1 = _filename[start_index: end_index]
-                chapter_name_1 = _filename[end_index + 1: ]
-                filepath = os.path.join(REFERENCE_DIR, law, filename)
-                with open(filepath, 'r', encoding='utf8') as f:
-                    lines = eval(f.read())
-                total_lines = len(lines)
-                for i in range(total_lines):
-                    line_string = lines[i].replace(' ', '')
-                    start_index = line_string.find('第') + 1
-                    end_index = line_string.find('章')
-                    chapter_number_2 = line_string[start_index: end_index]
-                    if start_index != 0 and end_index != -1:
-                        if line_string[-1] == '章':
-                            chapter_name_2 = lines[i + 1].replace(' ', '')
-                        else:
-                            chapter_name_2 = line_string[line_string.find('章') + 1:]
-                        break
-
-                for i in range(total_lines):
-                    blocks = lines[i].strip().split(' ')
-                    total_blocks = len(blocks)
-                    assert total_blocks <= TOTAL_REFERENCE_BLOCK
-                    reference_dict['law'].append(law)
-                    reference_dict['chapter_number_1'].append(chapter_number_1)
-                    reference_dict['chapter_name_1'].append(chapter_name_1)
-                    reference_dict['chapter_number_2'].append(chapter_number_2)
-                    reference_dict['chapter_name_2'].append(chapter_name_2)
-                    for j in range(TOTAL_REFERENCE_BLOCK):
-                        reference_dict[f'block_{j}'].append(blocks[j] if j < total_blocks else '')
-
-    reference_dataframe = pandas.DataFrame(reference_dict, columns=list(reference_dict.keys()))
-    if export_path is not None:
-        reference_dataframe.to_csv(export_path, sep='\t', header=True, index=False)
-    return reference_dataframe
-
-
-def reference_to_csv_2(export_path):
+# 参考文献TXT文本转为CSV格式文件
+def reference_to_csv(export_path, token2frequency=None):
     reference_dict = {
         'law': [],
         'chapter_number': [],
@@ -164,6 +112,7 @@ def reference_to_csv_2(export_path):
         'section': [],
         'content': [],
     }
+    _token2frequency = {} if token2frequency is None else token2frequency.copy()
     for law in os.listdir(REFERENCE_DIR):
         for filename in os.listdir(os.path.join(REFERENCE_DIR, law)):
             if filename.endswith('.txt'):
@@ -184,17 +133,14 @@ def reference_to_csv_2(export_path):
                     end_index = line_string.find('章')
                     chapter_number_2 = line_string[start_index: end_index]
                     if start_index != 0 and end_index != -1:
-                        if line_string[-1] == '章':
-                            chapter_name_2 = lines[i + 1].replace(' ', '')
-                        else:
-                            chapter_name_2 = line_string[line_string.find('章') + 1:]
+                        chapter_name_2 = lines[i + 1].replace(' ', '') if line_string[-1] == '章' else line_string[line_string.find('章') + 1:]
                         break
                 chapter_number = chinese_to_number(chapter_number_1)
                 chapter_name = chapter_name_1 if chapter_name_1 else chapter_name_2
                 for i in range(total_lines):
                     blocks = lines[i].strip().split(' ')
                     section = ' '.join(blocks[: -1])
-                    content = blocks[-1]
+                    content, _token2frequency = tokenize(blocks[-1], _token2frequency)
                     reference_dict['law'].append(law)
                     reference_dict['chapter_number'].append(chapter_number)
                     reference_dict['chapter_name'].append(chapter_name)
@@ -204,8 +150,46 @@ def reference_to_csv_2(export_path):
     reference_dataframe = pandas.DataFrame(reference_dict, columns=list(reference_dict.keys()))
     if export_path is not None:
         reference_dataframe.to_csv(export_path, sep='\t', header=True, index=False)
-    return reference_dataframe
+    return reference_dataframe, _token2frequency
 
+# 给参考文献制作文档索引：正排索引和倒排索引
+def index_reference():
+    reference_dataframe = pandas.read_csv(REFERENCE_PATH, sep='\t', header=0)
+    reference_token2id = pandas.read_csv(REFERENCE_TOKEN2ID_PATH, sep='\t', header=0)
+
+    document2id = {}    # 字典键为文档四元组(law, chapter_number, chapter_name, section), 值为文档编号
+    id2document = {}    # 字典键为文档编号, 值为文档四元组(law, chapter_number, chapter_name, section)
+
+    forward_index = {}                                                      # 前向索引字典: 键为文档编号, 值为四元组(分词词频信息, 分词段落集合, 文档最高频词的词频, 文档总词数)
+    inverted_index = {token: {} for token in reference_token2id['token']}   # 倒排索引字典: 键为分词, 值为该分词出现过的文档与在该文档中的出现次数的字典
+
+    document_id = -1
+    for document, df in reference_dataframe.groupby(['law', 'chapter_number', 'chapter_name', 'section']):
+        # 将四元组(law, chapter_number, chapter_name, section)相同的内容划分为同一文档
+
+        # 记录文档编号
+        document_id += 1
+        document2id[document] = document_id
+        id2document[document_id] = document
+
+        paragraphs = [] # 存储同一文档内的所有段落
+        tokens = []     # 存储同一文档内的所有分词
+        for content in df['content']:
+            paragraphs.append(eval(content))
+            tokens.extend(eval(content))
+        token_counter = Counter(tokens) # 统计每个分词的出现次数
+
+        # 构建正排索引与倒排索引
+        forward_index[document_id] = (token_counter, paragraphs, len(tokens), token_counter.most_common(1)[0][1])
+        for token, frequency in token_counter.items():
+            inverted_index[token][document_id] = frequency
+
+    # 导出为dill文件
+    dill.dump((document2id, id2document), open(DOCUMENT_ID_PATH, 'wb'))
+    dill.dump(forward_index, open(FORWARD_INDEX_PATH, 'wb'))
+    dill.dump(inverted_index, open(INVERTED_INDEX_PATH, 'wb'))
+
+    return document2id, id2document, forward_index, inverted_index
 
 def generate_dataloader(args, mode='train'):
     assert mode in ['train', 'test'], f'Unknown param `mode`: {mode}'
