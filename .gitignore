@@ -1,1 +1,7 @@
 /data/new/*
+/.ipynb_checkpoints/*
+/logging/*
+/temp/*
+/model/*
+/checkpoint/*
+/submit/*

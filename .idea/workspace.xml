@@ -10,9 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ef45913-c196-4e83-86bb-9959fade6525" name="Default Changelist" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="1ef45913-c196-4e83-86bb-9959fade6525" name="Default Changelist" comment="test">
+      <change afterPath="$PROJECT_DIR$/src/language_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pretrain_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/new/0_test.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/new/0_train.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/new/1_test.csv" beforeDir="false" />
@@ -20,22 +23,32 @@
       <change beforePath="$PROJECT_DIR$/data/new/reference_book.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/new/token2frequency.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/new/token2id.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/reference_book/中国特色社会主义法治理论/第一章  中国特色社会主义法治建设基本原理.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/reference_book/中国特色社会主义法治理论/第一章  中国特色社会主义法治建设基本原理.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/subject_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/subject_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/subject_model.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="5e8d1497-c149-4042-97d7-73b24c767da1" />
   <component name="ProjectId" id="1zfVP6Za6sIhwR85TJ6NxRGU1yy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -43,12 +56,40 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.manage">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\python\project\caoyang\project_011_cail\cailsfks\temp\old" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.train">
+    <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="cailsfks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/config.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="cailsfks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -71,7 +112,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="pretrain_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="cailsfks" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pretrain_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setting" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="cailsfks" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -84,7 +147,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setting.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -117,9 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.manage" />
-        <item itemvalue="Python.preprocess" />
         <item itemvalue="Python.train" />
+        <item itemvalue="Python.manage" />
+        <item itemvalue="Python.pretrain_model" />
+        <item itemvalue="Python.setting" />
+        <item itemvalue="Python.config" />
       </list>
     </recent_temporary>
   </component>
@@ -138,7 +203,26 @@
       <workItem from="1634605195142" duration="15303000" />
       <workItem from="1634691459198" duration="4961000" />
       <workItem from="1634703182235" duration="3000" />
-      <workItem from="1634703216816" duration="1884000" />
+      <workItem from="1634703216816" duration="12142000" />
+      <workItem from="1634746429417" duration="866000" />
+      <workItem from="1634779343549" duration="6805000" />
+      <workItem from="1634802548317" duration="5540000" />
+      <workItem from="1634831339550" duration="4210000" />
+      <workItem from="1634862827058" duration="6914000" />
+      <workItem from="1634875248089" duration="7320000" />
+      <workItem from="1634989646731" duration="1459000" />
+      <workItem from="1635038184715" duration="1803000" />
+      <workItem from="1635057130560" duration="12486000" />
+      <workItem from="1635122802120" duration="6000000" />
+      <workItem from="1635135167336" duration="11079000" />
+      <workItem from="1635149786782" duration="1359000" />
+      <workItem from="1635159503573" duration="1588000" />
+      <workItem from="1635165762734" duration="13154000" />
+      <workItem from="1635210169517" duration="5860000" />
+      <workItem from="1635232316563" duration="15498000" />
+      <workItem from="1635298154465" duration="8320000" />
+      <workItem from="1635317939458" duration="2161000" />
+      <workItem from="1635325817326" duration="2314000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1634539463793</created>
@@ -147,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634539463793</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial commit">
+      <created>1634725418379</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1634725418379</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,38 +269,42 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="671" y="329" key="Github.ShareDialog/62.0.1474.864@62.0.1474.864" timestamp="1634539678131" />
-    <state width="969" height="121" key="GridCell.Tab.0.bottom" timestamp="1634692540418">
+    <state width="1431" height="287" key="GridCell.Tab.0.bottom" timestamp="1635326397789">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="969" height="121" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1634692540418" />
-    <state width="969" height="121" key="GridCell.Tab.0.center" timestamp="1634692540418">
+    <state width="1431" height="287" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1635326397789" />
+    <state width="1431" height="287" key="GridCell.Tab.0.center" timestamp="1635326397789">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="969" height="121" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1634692540418" />
-    <state width="969" height="121" key="GridCell.Tab.0.left" timestamp="1634692540418">
+    <state width="1431" height="287" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1635326397789" />
+    <state width="1431" height="287" key="GridCell.Tab.0.left" timestamp="1635326397789">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="969" height="121" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1634692540418" />
-    <state width="969" height="121" key="GridCell.Tab.0.right" timestamp="1634692540418">
+    <state width="1431" height="287" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1635326397789" />
+    <state width="1431" height="287" key="GridCell.Tab.0.right" timestamp="1635326397789">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="969" height="121" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1634692540418" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1634539705616">
+    <state width="1431" height="287" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1635326397789" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1634725441214">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1634539705616" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1634725441214" />
     <state x="526" y="219" key="git4idea.merge.GitPullDialog" timestamp="1634539166640">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="526" y="219" key="git4idea.merge.GitPullDialog/62.0.1474.864@62.0.1474.864" timestamp="1634539166640" />
-    <state x="423" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1634698625858">
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup" timestamp="1635325895894">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="423" y="185" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1634698625858" />
+    <state x="422" y="185" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1635325895894" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/cailsfks$train.coverage" NAME="train Coverage Results" MODIFIED="1634544374955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cailsfks$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1634660627242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cailsfks$manage.coverage" NAME="manage Coverage Results" MODIFIED="1634691998146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cailsfks$pytest_in_language_model_py.coverage" NAME="pytest in language_model.py Coverage Results" MODIFIED="1634785787569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/cailsfks$setting.coverage" NAME="setting Coverage Results" MODIFIED="1635169537232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cailsfks$train.coverage" NAME="train Coverage Results" MODIFIED="1635326397774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cailsfks$config.coverage" NAME="config Coverage Results" MODIFIED="1635089720895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cailsfks$preprocess.coverage" NAME="preprocess Coverage Results" MODIFIED="1635088089602" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cailsfks$manage.coverage" NAME="manage Coverage Results" MODIFIED="1635311920495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cailsfks$pretrain_model.coverage" NAME="pretrain_model Coverage Results" MODIFIED="1635235058578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

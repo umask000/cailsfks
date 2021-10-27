@@ -2,21 +2,20 @@
 # @author: caoyang
 # @email: caoyang@163.sufe.edu.cn
 
-import dill
+import gensim
 import pandas
 
 from config import TrainConfig
 from setting import *
 
-from src.utils import load_args
+from src.language_model import *
+from src.utils import load_args, load_stopwords
+from src.dataset import CSVDataset, generate_dataloader
+from gensim.similarities import Similarity
 
-document2id, id2document = dill.load(open(DOCUMENT_ID_PATH, 'rb'))
-forward_index = dill.load(open(FORWARD_INDEX_PATH, 'rb'))
-inverted_index = dill.load(open(INVERTED_INDEX_PATH, 'rb'))
+args = load_args(TrainConfig)
+args.use_reference = False
+dataloader = generate_dataloader(args, mode='test')
+dataloader_kd = generate_dataloader(args, mode='test_kd')
+dataloader_ca = generate_dataloader(args, mode='test_ca')
 
-print(len(document2id))
-print(len(id2document))
-print('#' * 128)
-print(len(forward_index))
-print('#' * 128)
-print(len(inverted_index))

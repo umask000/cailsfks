@@ -23,10 +23,18 @@ def initialize_logging(filename, filemode='w'):
         filemode=filemode,
     )
     console = logging.StreamHandler()
-    console.setLevel(logging.DEBUG)
+    console.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s | %(filename)s | %(levelname)s | %(message)s')
     console.setFormatter(formatter)
     logging.getLogger().addHandler(console)
+
+# 加载停用词
+def load_stopwords():
+    stopwords = []
+    for name, filepath in STOPWORD_PATHs.items():
+        with open(filepath, 'r', encoding='utf8') as f:
+            stopwords.extend(f.read().splitlines())
+    return list(set(stopwords))
 
 # 加载配置参数
 def load_args(Config):
@@ -114,4 +122,10 @@ def chinese_to_number(string):
     else:
         number = int(number_string.replace('0', ''))
     return number
+
+# 过滤停词
+def filter_stopwords(tokens, stopwords=None):
+    if stopwords is None:
+        stopwords = load_stopwords()
+    return list(filter(lambda x: not x in stopwords, tokens))
 
