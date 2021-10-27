@@ -10,29 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ef45913-c196-4e83-86bb-9959fade6525" name="Default Changelist" comment="test">
-      <change afterPath="$PROJECT_DIR$/src/language_model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pretrain_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/0_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/0_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/1_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/1_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/reference_book.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/token2frequency.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/new/token2id.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/reference_book/中国特色社会主义法治理论/第一章  中国特色社会主义法治建设基本原理.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/reference_book/中国特色社会主义法治理论/第一章  中国特色社会主义法治建设基本原理.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/subject_model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-    </list>
+    <list default="true" id="1ef45913-c196-4e83-86bb-9959fade6525" name="Default Changelist" comment="test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,7 +200,7 @@
       <workItem from="1635232316563" duration="15498000" />
       <workItem from="1635298154465" duration="8320000" />
       <workItem from="1635317939458" duration="2161000" />
-      <workItem from="1635325817326" duration="2314000" />
+      <workItem from="1635325817326" duration="3002000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1634539463793</created>
@@ -238,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634725418379</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="test">
+      <created>1635333110073</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1635333110073</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +243,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="580" y="173" key="FileChooserDialogImpl" timestamp="1634539134252">
@@ -285,10 +271,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="1431" height="287" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1635326397789" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1634725441214">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1635333113305">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1634725441214" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1635333113305" />
     <state x="526" y="219" key="git4idea.merge.GitPullDialog" timestamp="1634539166640">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
